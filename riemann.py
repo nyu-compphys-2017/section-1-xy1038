@@ -1,5 +1,8 @@
 # This is a python file! The '#' character indicates that the following line is a comment.
 
+from __future__ import division
+import numpy as np
+
 # The following is an example for how to define a function in Python
 # def tells the compiler that hello_world is the name of a function
 # this implementation of hello_world takes a string as an argument,
@@ -13,3 +16,9 @@ def hello_world(name=''):
     
     
 #Implement the Riemann Sum approximation for integrals.
+def riemann(a,b,N,fn):
+    width = (b-a)/N 
+    x_vals = np.arange(a+width, b+width, width)
+    fn_values = fn(x_vals)
+    result = np.sum(width*fn_values)
+    return result 
